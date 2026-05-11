@@ -5,21 +5,23 @@
 class Cleo < Formula
   desc "Terminal session manager for AI coding agents"
   homepage "https://github.com/dhruvsaxena1998/cleo"
-  version "0.1.0-beta.1"
+  version "0.1.0-beta.2"
   license "MIT"
+
+  depends_on "tmux"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/dhruvsaxena1998/cleo/releases/download/v0.1.0-beta.1/cleo_0.1.0-beta.1_darwin_amd64.tar.gz"
-      sha256 "c0f11f3da42024d3b3b814374a3549f3bcbe35fea1a6a68c507dcae098427408"
+      url "https://github.com/dhruvsaxena1998/cleo/releases/download/v0.1.0-beta.2/cleo_0.1.0-beta.2_darwin_amd64.tar.gz"
+      sha256 "d28bb29d2efb9cbf3a75dee2b479fcad434de982e591d8df41ba011efbaeb012"
 
       define_method(:install) do
         bin.install "cleo"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/dhruvsaxena1998/cleo/releases/download/v0.1.0-beta.1/cleo_0.1.0-beta.1_darwin_arm64.tar.gz"
-      sha256 "fcff0cbb03d8a7ebdc6e4fc4c875f37e6d0f9370b0109557c7433d0ee1e6b065"
+      url "https://github.com/dhruvsaxena1998/cleo/releases/download/v0.1.0-beta.2/cleo_0.1.0-beta.2_darwin_arm64.tar.gz"
+      sha256 "60f4c323f54548ce583871313c96509e9374e6cd992552d6b7274169572aa0aa"
 
       define_method(:install) do
         bin.install "cleo"
@@ -29,19 +31,27 @@ class Cleo < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dhruvsaxena1998/cleo/releases/download/v0.1.0-beta.1/cleo_0.1.0-beta.1_linux_amd64.tar.gz"
-      sha256 "c840a9dcaa2d8296aeccf8230e5463cefd8e56f6851c904ad086ee49e8d96b99"
+      url "https://github.com/dhruvsaxena1998/cleo/releases/download/v0.1.0-beta.2/cleo_0.1.0-beta.2_linux_amd64.tar.gz"
+      sha256 "c04fb95afb379dfa147030d3daaeb4c8375c1b6bc0f88bf065df0f47ffd8e8cd"
       define_method(:install) do
         bin.install "cleo"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dhruvsaxena1998/cleo/releases/download/v0.1.0-beta.1/cleo_0.1.0-beta.1_linux_arm64.tar.gz"
-      sha256 "4c4190ea510ff8666f2a1ab8ec9c21216bbb95b4b5937246749920cff8719c52"
+      url "https://github.com/dhruvsaxena1998/cleo/releases/download/v0.1.0-beta.2/cleo_0.1.0-beta.2_linux_arm64.tar.gz"
+      sha256 "0d730a213d5dac2b5d6798f377e19e2bc9385097e9144aee002e09ada19b3fd3"
       define_method(:install) do
         bin.install "cleo"
       end
     end
+  end
+
+  def caveats
+    <<~EOS
+      tmux was installed as a dependency of cleo.
+      If you uninstall cleo and no longer need tmux, you can remove it with:
+        brew uninstall tmux
+    EOS
   end
 
   test do
