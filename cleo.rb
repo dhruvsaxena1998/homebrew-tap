@@ -5,23 +5,23 @@
 class Cleo < Formula
   desc "Terminal session manager for AI coding agents"
   homepage "https://github.com/dhruvsaxena1998/cleo"
-  version "0.1.0-beta.3"
+  version "0.1.0-beta.4"
   license "MIT"
 
   depends_on "tmux"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/dhruvsaxena1998/cleo/releases/download/v0.1.0-beta.3/cleo_0.1.0-beta.3_darwin_amd64.tar.gz"
-      sha256 "ceb354b3a2444663c4dfc0e8cc816ff0818a7df08b89dfd0d20146484ba56d06"
+      url "https://github.com/dhruvsaxena1998/cleo/releases/download/v0.1.0-beta.4/cleo_0.1.0-beta.4_darwin_amd64.tar.gz"
+      sha256 "dc06da968601a8ad21012c1a637e78195335236ab8654363744f844518680ed5"
 
       define_method(:install) do
         bin.install "cleo"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/dhruvsaxena1998/cleo/releases/download/v0.1.0-beta.3/cleo_0.1.0-beta.3_darwin_arm64.tar.gz"
-      sha256 "40642fe27cc87683dd225f12bc5d58999d5af83924069c18bdbcc2a7f94fc608"
+      url "https://github.com/dhruvsaxena1998/cleo/releases/download/v0.1.0-beta.4/cleo_0.1.0-beta.4_darwin_arm64.tar.gz"
+      sha256 "9c8a7cc71a74600fe229d8c455efd444416f812137930a10cadc636f60a52360"
 
       define_method(:install) do
         bin.install "cleo"
@@ -31,15 +31,15 @@ class Cleo < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dhruvsaxena1998/cleo/releases/download/v0.1.0-beta.3/cleo_0.1.0-beta.3_linux_amd64.tar.gz"
-      sha256 "89277bb27029b69d25211550886bd853112480db526ab959849611c66c266f84"
+      url "https://github.com/dhruvsaxena1998/cleo/releases/download/v0.1.0-beta.4/cleo_0.1.0-beta.4_linux_amd64.tar.gz"
+      sha256 "2687ae03bb562bc24915c63b67073c9c293c0c50ac5579f3c1608f2820916edf"
       define_method(:install) do
         bin.install "cleo"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dhruvsaxena1998/cleo/releases/download/v0.1.0-beta.3/cleo_0.1.0-beta.3_linux_arm64.tar.gz"
-      sha256 "e7dd0e5f65aba237288cd37470814ec10ff4bb6a1d128283e553301e4f73d6b4"
+      url "https://github.com/dhruvsaxena1998/cleo/releases/download/v0.1.0-beta.4/cleo_0.1.0-beta.4_linux_arm64.tar.gz"
+      sha256 "21953e6c26d88b1310f47ca16d2a3e3279dc856008ab04c244818ac26b4cb935"
       define_method(:install) do
         bin.install "cleo"
       end
